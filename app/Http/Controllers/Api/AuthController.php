@@ -20,8 +20,8 @@ class AuthController extends Controller
         return AuthService::register($request->all());
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        return AuthService::logout($request->all());
+        return AuthService::logout();
     }
 }

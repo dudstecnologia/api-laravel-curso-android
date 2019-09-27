@@ -11,7 +11,7 @@ class AuthService
     public static function login($request)
     {
         if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
-            $user = auth()->user();
+            $user = Auth::user();
             $user->token = $user->createToken($user->email)->accessToken;
     
             return $user;
@@ -33,9 +33,9 @@ class AuthService
         return $user;
     }
 
-    public static function logout($request)
+    public static function logout()
     {
-        auth()->user()->token()->revoke();
+        Auth::user()->token()->revoke();
 
         return response()->json([
             'message' => 'Deslogado com sucesso'
