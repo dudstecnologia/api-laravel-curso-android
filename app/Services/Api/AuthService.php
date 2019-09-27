@@ -32,4 +32,13 @@ class AuthService
     
         return $user;
     }
+
+    public static function logout($request)
+    {
+        auth()->user()->token()->revoke();
+
+        return response()->json([
+            'message' => 'Deslogado com sucesso'
+        ]);
+    }
 }

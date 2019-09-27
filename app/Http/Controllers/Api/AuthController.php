@@ -19,4 +19,9 @@ class AuthController extends Controller
     {
         return AuthService::register($request->all());
     }
+
+    public function logout(Request $request)
+    {
+        return AuthService::logout($request->all());
+    }
 }

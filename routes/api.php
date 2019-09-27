@@ -11,6 +11,10 @@ Route::get('/status', function () {
 });
 
 Route::namespace('Api')->group( function() {
-    Route::post('/login', 'AuthController@login');
-    Route::post('/register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
+    Route::post('register', 'AuthController@register');
+
+    Route::middleware('auth:api')->group( function () {
+        Route::get('logout', 'AuthController@logout');
+    });
 });
