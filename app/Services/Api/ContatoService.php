@@ -21,7 +21,38 @@ class ContatoService
             Contato::create($request);
             return ['msg' => 'Contato salvo com sucesso'];
         } catch (\Throwable $e) {
-            return ['msg' => 'Ocorreu um erro ao salvar o Usuário'];
+            return ['msg' => 'Ocorreu um erro ao salvar o contato'];
+        }
+    }
+
+    public static function show($id)
+    {
+        try {
+            return Contato::find($id);
+        } catch (\Throwable $e) {
+            return ['msg' => 'Ocorreu um erro ao selecionar o contato'];
+        }
+    }
+
+    public static function update($request, $id)
+    {
+        try {
+            $contato = Contato::find($id);
+            $contato->update($request);
+            return ['msg' => 'Contato atualizado com sucesso'];
+        } catch (\Throwable $e) {
+            return ['msg' => 'Ocorreu um erro ao atualizar o contato'];
+        }
+    }
+
+    public static function destroy($id)
+    {
+        try {
+            $contato = Contato::findOrfail($id);
+            $contato->delete();
+            return ['msg' => 'Contato excluído com sucesso'];
+        } catch (\Throwable $e) {
+            return ['msg' => 'Ocorreu um erro ao excluir o contato'];
         }
     }
 }

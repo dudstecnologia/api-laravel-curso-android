@@ -19,23 +19,18 @@ class ContatoController extends Controller
         return ContatoService::store($request->all());
     }
 
-    // public function show($id)
-    // {
-    //     //
-    // }
+    public function show($id)
+    {
+        return ContatoService::show($id);
+    }
 
-    // public function edit($id)
-    // {
-    //     //
-    // }
+    public function update(ContatoRequest $request, $id)
+    {
+        return ContatoService::update($request->all(), $id);
+    }
 
-    // public function update(Request $request, $id)
-    // {
-    //     //
-    // }
-
-    // public function destroy($id)
-    // {
-    //     //
-    // }
+    public function destroy($id)
+    {
+        return ContatoService::destroy($id);
+    }
 }
