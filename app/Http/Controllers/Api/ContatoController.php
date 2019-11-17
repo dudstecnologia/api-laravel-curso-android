@@ -4,41 +4,38 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ContatoRequest;
+use App\Services\Api\ContatoService;
 
 class ContatoController extends Controller
 {
     public function index()
     {
-        //
+        return ContatoService::index();
     }
 
-    public function create()
+    public function store(ContatoRequest $request)
     {
-        //
+        return ContatoService::store($request->all());
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
-    public function show($id)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
-    public function edit($id)
-    {
-        //
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
+    // public function destroy($id)
+    // {
+    //     //
+    // }
 }

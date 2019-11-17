@@ -16,5 +16,6 @@ Route::namespace('Api')->group( function() {
 
     Route::middleware('auth:api')->group( function () {
         Route::get('logout', 'AuthController@logout');
+        Route::resource('contatos', 'ContatoController');
     });
 });
