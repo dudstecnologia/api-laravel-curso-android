@@ -28,7 +28,7 @@ class ContatoService
     public static function show($id)
     {
         try {
-            return Contato::find($id);
+            return Contato::select('nome', 'telefone', 'email')->where('id', $id)->get();
         } catch (\Throwable $e) {
             return ['msg' => 'Ocorreu um erro ao selecionar o contato'];
         }
